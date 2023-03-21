@@ -60,7 +60,6 @@
   <div class="div2">
     <StudentList
       ref="childSearch"
-      :search="search"
       @editStudent="editStudent()"
     />
   </div>
@@ -87,7 +86,7 @@ export default {
     },
     searchStudents() {
       this.$refs.childSearch.searchStudent(this.search);
-      // this.search = "";
+      this.search = "";
     },
     editStudent() {
       console.log("aaa");

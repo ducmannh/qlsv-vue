@@ -77,9 +77,6 @@ export default {
       origin: [],
     };
   },
-  props: {
-    search: String,
-  },
   computed: {
     hasSelectedStudents() {
       return this.selectStudents.length > 0;
@@ -106,13 +103,13 @@ export default {
       this.students.push(student);
       localStorage.setItem("students", JSON.stringify(this.students));
     },
-    searchStudent() {
-      if (this.search) {
+    searchStudent(search) {
+      if (search) {
         this.students = this.students.filter((student) =>
-          student.name.toLowerCase().includes(this.search.toLowerCase())
+          student.name.toLowerCase().includes(search.toLowerCase())
         );
       } else {
-        return this.students;
+        return this.students = JSON.parse(localStorage.getItem("students"))
       }
     },
     editStudent(student) {
